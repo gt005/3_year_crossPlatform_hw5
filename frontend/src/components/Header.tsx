@@ -7,7 +7,7 @@ const Header = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('username');
-        localStorage.removeItem('serverJwt');
+        localStorage.removeItem('accessToken');
 
         navigate('/');
     }
@@ -30,14 +30,18 @@ const Header = () => {
                     <div className="header__link text-large">Шкафы</div>
                 </Link>
                 {username ? (
-                    <div>
-                        <div className="header__link text-large">
-                            {username}
-                        </div>
-                        <div className="header__link header__link__cursor-style text-large" onClick={handleLogout}>
-                            Выйти
-                        </div>
-                    </div>
+                    <>
+                        <Link to={'/admin'}>
+                            <div className="header__link text-large">
+                                Админка {username}
+                            </div>
+                        </Link>
+                        <>
+                            <div className="header__link header__link__cursor-style text-large" onClick={handleLogout}>
+                                Выйти
+                            </div>
+                        </>
+                    </>
                 ) : (
                     <Link to={'/login'}>
                         <div className="header__link header__link__cursor-style text-large">

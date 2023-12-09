@@ -22,7 +22,7 @@ const LoginPage = () => {
         try {
             const response = await axios.post(`${getServerUrl()}/auth/sign-in/`, values);
 
-            localStorage.setItem('serverJwt', response.data.token);
+            localStorage.setItem('accessToken', response.data.token);
             localStorage.setItem('username', values.username);
 
             message.success('Успешный вход в систему');

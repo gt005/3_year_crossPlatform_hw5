@@ -32,7 +32,7 @@ const RegisterPage = () => {
                 passwordRepeat: values.passwordRepeat
             });
 
-            localStorage.setItem('serverJwt', response.data.token);
+            localStorage.setItem('accessToken', response.data.token);
             localStorage.setItem('username', values.username);
 
             message.success('Регистрация прошла успешно');
