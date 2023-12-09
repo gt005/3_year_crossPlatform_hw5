@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - hw4_mongo_volume:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    ports:
+      - "27017:27017"
+
+  express:
+    build: ./backend/
+    env_file:
+      - './backend/.env'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+volumes:
+  hw4_mongo_volume:

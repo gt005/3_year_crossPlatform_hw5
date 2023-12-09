@@ -1,0 +1,1042 @@
+{
+	"info": {
+		"_postman_id": "5fcd5162-3fc8-4a58-a3b1-68d936f5fa00",
+		"name": "HW4 postman collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26270761"
+	},
+	"item": [
+		{
+			"name": "Сохранение некорректного объекта",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": {\n      \"hexCode\": \"#654321\"\n    },\n    \"size\": 13,\n    \"material\": [13, \"hello\"],\n    \"quantityInStock\": -10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/furniture/tables",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": {\n      \"hexCode\": \"#654321\"\n    },\n    \"size\": 13,\n    \"material\": [13, \"hello\"],\n    \"quantityInStock\": -10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/furniture/tables",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"169-dd19Bp+d2qDpMynMGGJm1hlVFqo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:07:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": 13,\n            \"msg\": \"Invalid value\",\n            \"path\": \"size\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": [\n                13,\n                \"hello\"\n            ],\n            \"msg\": \"Invalid value\",\n            \"path\": \"material\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Invalid value\",\n            \"path\": \"color.name\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": -10,\n            \"msg\": \"Invalid value\",\n            \"path\": \"quantityInStock\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Корректное создание",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": {\n      \"name\": \"Name\",\n      \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": {\n      \"name\": \"Name\",\n      \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "350"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15e-mHyNmbKZHGGDts0+8+I1u2cFTJw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:07:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"color\": {\n        \"name\": \"Name\",\n        \"hexCode\": \"#654321\"\n    },\n    \"quantityInStock\": 10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\",\n    \"_id\": \"654fa6d5c352647abb0b2565\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Получение по ошибочному id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/not_exist_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"not_exist_id"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/not_exist_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"not_exist_id"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-Bk1P0le7htOvn+nPRmtbuW5WHfs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:07:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"not_exist_id\",\n            \"msg\": \"Invalid value\",\n            \"path\": \"id\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Корректное получение по id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/654fa6d5c352647abb0b2565",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"654fa6d5c352647abb0b2565"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/654fa6d5c352647abb0b2565",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"654fa6d5c352647abb0b2565"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "350"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15e-k6V+em1TBvz702ZkFFbTaY3PAQU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:09:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"color\": {\n        \"name\": \"Name\",\n        \"hexCode\": \"#654321\"\n    },\n    \"_id\": \"654fa6d5c352647abb0b2565\",\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Еще одно создание(чтобы показать список при GET)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": {\n      \"name\": \"Name 2\",\n      \"hexCode\": \"#23424\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Сталь\",\n    \"quantityInStock\": 204,\n    \"cost\": 120,\n    \"description\": \"Элегантный стол 2\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": {\n      \"name\": \"Name 2\",\n      \"hexCode\": \"#23424\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Сталь\",\n    \"quantityInStock\": 204,\n    \"cost\": 120,\n    \"description\": \"Элегантный стол 2\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "258"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"102-5iEZ77arbkqQd7VfaxFOy0rz+8k\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:09:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"size\": \"150x75 cm\",\n    \"material\": \"Сталь\",\n    \"color\": {\n        \"name\": \"Name 2\",\n        \"hexCode\": \"#23424\"\n    },\n    \"quantityInStock\": 204,\n    \"cost\": 120,\n    \"description\": \"Элегантный стол 2\",\n    \"image\": \"https://example.com/images/table.jpg\",\n    \"_id\": \"654fa73bc352647abb0b256a\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Просмотр Всех сущностей",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "611"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"263-oowPRNwV0D6n4tU851y+BgKid8s\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:09:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"color\": {\n            \"name\": \"Name\",\n            \"hexCode\": \"#654321\"\n        },\n        \"_id\": \"654fa6d5c352647abb0b2565\",\n        \"size\": \"150x75 cm\",\n        \"material\": \"Дерево\",\n        \"quantityInStock\": 10,\n        \"cost\": 12000,\n        \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n        \"image\": \"https://example.com/images/table.jpg\",\n        \"__v\": 0\n    },\n    {\n        \"color\": {\n            \"name\": \"Name 2\",\n            \"hexCode\": \"#23424\"\n        },\n        \"_id\": \"654fa73bc352647abb0b256a\",\n        \"size\": \"150x75 cm\",\n        \"material\": \"Сталь\",\n        \"quantityInStock\": 204,\n        \"cost\": 120,\n        \"description\": \"Элегантный стол 2\",\n        \"image\": \"https://example.com/images/table.jpg\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Некорректный PUT id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": {\n      \"name\": \"Name\",\n      \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/not_exist_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"not_exist_id"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": {\n      \"name\": \"Name\",\n      \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 10,\n    \"cost\": 12000,\n    \"description\": \"Элегантный деревянный стол идеально подходит для семейных ужинов\",\n    \"image\": \"https://example.com/images/table.jpg\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/not_exist_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"not_exist_id"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-Bk1P0le7htOvn+nPRmtbuW5WHfs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:10:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"not_exist_id\",\n            \"msg\": \"Invalid value\",\n            \"path\": \"id\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Некорректный PUT тело",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": {\n        \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": -10,\n    \"cost\": 12000,\n    \"description\": [\"hello\"],\n    \"image\": \"https://example.com/images/table.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/654fa4432ccdae5e257c120a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"654fa4432ccdae5e257c120a"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": {\n        \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": -10,\n    \"cost\": 12000,\n    \"description\": [\"hello\"],\n    \"image\": \"https://example.com/images/table.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/654fa4432ccdae5e257c120a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"654fa4432ccdae5e257c120a"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "279"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"117-h0zdxrjcHOG2QwUFN/1uTSNx9Zc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:10:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"Invalid value\",\n            \"path\": \"color.name\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": -10,\n            \"msg\": \"Invalid value\",\n            \"path\": \"quantityInStock\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": [\n                \"hello\"\n            ],\n            \"msg\": \"Invalid value\",\n            \"path\": \"description\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Корректный PUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": {\n        \"name\": \"Edited color name\",\n        \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 1230,\n    \"cost\": 1200,\n    \"description\": \"Else Edited\",\n    \"image\": \"234354erg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/654fa6d5c352647abb0b2565",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"654fa6d5c352647abb0b2565"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": {\n        \"name\": \"Edited color name\",\n        \"hexCode\": \"#654321\"\n    },\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 1230,\n    \"cost\": 1200,\n    \"description\": \"Else Edited\",\n    \"image\": \"234354erg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/654fa6d5c352647abb0b2565",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"654fa6d5c352647abb0b2565"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "227"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e3-er4LJt25DdOFuzXN5GEC+RTI3uw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:11:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"color\": {\n        \"name\": \"Edited color name\",\n        \"hexCode\": \"#654321\"\n    },\n    \"_id\": \"654fa6d5c352647abb0b2565\",\n    \"size\": \"150x75 cm\",\n    \"material\": \"Дерево\",\n    \"quantityInStock\": 1230,\n    \"cost\": 1200,\n    \"description\": \"Else Edited\",\n    \"image\": \"234354erg\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Некорректный DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/not_exist_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"not_exist_id"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/not_exist_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"not_exist_id"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-Bk1P0le7htOvn+nPRmtbuW5WHfs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:12:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"not_exist_id\",\n            \"msg\": \"Invalid value\",\n            \"path\": \"id\",\n            \"location\": \"params\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Корректный DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables/654fa6d5c352647abb0b2565",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables",
+						"654fa6d5c352647abb0b2565"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables/654fa6d5c352647abb0b2565",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables",
+								"654fa6d5c352647abb0b2565"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:12:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Проверка работы",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/furniture/tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"furniture",
+						"tables"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ответ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/furniture/tables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"furniture",
+								"tables"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "260"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"104-AHhOTOl2PKRZ6NZ7MsNnMlozuws\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Nov 2023 16:13:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"color\": {\n            \"name\": \"Name 2\",\n            \"hexCode\": \"#23424\"\n        },\n        \"_id\": \"654fa73bc352647abb0b256a\",\n        \"size\": \"150x75 cm\",\n        \"material\": \"Сталь\",\n        \"quantityInStock\": 204,\n        \"cost\": 120,\n        \"description\": \"Элегантный стол 2\",\n        \"image\": \"https://example.com/images/table.jpg\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		}
+	]
+}
