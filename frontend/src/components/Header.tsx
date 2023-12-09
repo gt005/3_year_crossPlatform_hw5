@@ -2,13 +2,12 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
-  const userName = localStorage.getItem('userName');
+  const username = localStorage.getItem('username');
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('userName');
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('username');
+    localStorage.removeItem('serverJwt');
 
     navigate('/');
   }
@@ -25,18 +24,18 @@ const Header = () => {
         <div className="header__link text-large">Проекты</div>
         <div className="header__link text-large">Материалы</div>
         <div className="header__link text-large">Отзывы</div>
-        {userName ? (
+        {username ? (
           <div>
             <div className="header__link text-large">
-              {userName}
+              {username}
             </div>
-            <div className="header__link text-large" onClick={handleLogout}>
+            <div className="header__link header__link__cursor-style text-large" onClick={handleLogout}>
               Выйти
             </div>
           </div>
         ) : (
           <Link to={'/login'}>
-            <div className="header__link text-large">
+            <div className="header__link header__link__cursor-style text-large">
               Войти
             </div>
           </Link>
