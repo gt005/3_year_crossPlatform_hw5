@@ -81,6 +81,10 @@ h3 {
     grid-column: 9;
 }
 
+.header__link {
+    margin-bottom: 8px;
+}
+
 .header__link__cursor-style {
     cursor: pointer;
 }
