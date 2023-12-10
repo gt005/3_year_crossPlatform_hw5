@@ -9,7 +9,7 @@ import { getServerUrl } from '../../common/services';
 import { RegistrationFormValues } from './types';
 
 
-const RegisterPage = () => {
+const RegisterPage = ({ onLogin }: { onLogin: () => void }) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const styles = useStyles();
@@ -34,6 +34,7 @@ const RegisterPage = () => {
 
             localStorage.setItem('accessToken', response.data.token);
             localStorage.setItem('username', values.username);
+            onLogin();
 
             message.success('Регистрация прошла успешно');
             setTimeout(() => {

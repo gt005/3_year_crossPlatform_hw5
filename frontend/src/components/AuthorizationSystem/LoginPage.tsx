@@ -8,7 +8,7 @@ import useStyles from './styles';
 import { LoginFormValues } from './types';
 import { getServerUrl } from '../../common/services';
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }: { onLogin: () => void }) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const styles = useStyles();
@@ -24,6 +24,7 @@ const LoginPage = () => {
 
             localStorage.setItem('accessToken', response.data.token);
             localStorage.setItem('username', values.username);
+            onLogin();
 
             message.success('Успешный вход в систему');
             setTimeout(() => {

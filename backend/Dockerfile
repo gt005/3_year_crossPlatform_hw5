@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /usr/src/app
+WORKDIR /code
 
 COPY package*.json yarn.lock ./
 
@@ -10,6 +10,6 @@ COPY . .
 
 RUN yarn build
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD ["node", "src/index.js"]

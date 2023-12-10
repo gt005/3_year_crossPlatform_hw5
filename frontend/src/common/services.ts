@@ -1,3 +1,3 @@
 export const getServerUrl = (): string => {
-    return "http://localhost:3000/api";
+    return "http://localhost:8080/api";
 }
